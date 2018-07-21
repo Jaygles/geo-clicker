@@ -5,7 +5,4 @@ module.exports = withSass({
     importLoaders: 1,
     localIdentName: '[local]___[hash:base64:5]',
   },
-  sassLoaderOptions: {
-    includePaths: ['absolute/path/a', 'absolute/path/b'],
-  },
 });
