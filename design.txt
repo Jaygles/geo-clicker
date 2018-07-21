@@ -1,0 +1,19 @@
+Base currency - point?
+
+2d
+Line - 100 points
+Triangle - 4330 points
+square - 10000 points
+pentagon - 17204 points
+hexagon - 25980 points
+heptagon - 36339 points
+octagon - 48284 points
+nonagon - 61818 points
+decagon - 76942 points
+hendecagon - 93656 points
+dodecagon - 	111961 points
+
+3d
+pyramid - 333333 points
+cube - 10000000 points
+pentagon - 5092682644558171000 points

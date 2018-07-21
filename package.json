@@ -1,0 +1,25 @@
+{
+  "name": "clicker2",
+  "version": "0.0.1",
+  "description": "Clicker attempt two",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "CLicker",
+    "Game"
+  ],
+  "author": "Jacob Sullivan",
+  "license": "ISC",
+  "dependencies": {
+    "@zeit/next-sass": "^0.2.0",
+    "express": "^4.16.3",
+    "next": "^6.1.1",
+    "node-sass": "^4.9.2",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0"
+  }
+}
