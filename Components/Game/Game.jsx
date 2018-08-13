@@ -1,23 +1,46 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+import BankPanel from './Bank/BankPanel';
+import GatheringPanel from './Gathering/GatheringPanel';
+import InventoryPanel from './Inventory/InventoryPanel';
+import StorePanel from './Store/StorePanel';
 import * as Actions from '../../store/actions';
 import css from './Game.scss';
 
 class Game extends React.Component {
+  state = {
+    gameInterval: null,
+  };
+  componentDidMount() {
+    this.setState({
+      gameInterval: setInterval(() => {
+        this.props.dispatch(
+          Actions.increment(this.props.bank, this.props.inventory),
+        );
+      }, 250),
+    });
+  }
+  componentWillUnmount() {
+    clearInterval(this.state.gameInterval);
+  }
   test = () => {
     const { dispatch } = this.props;
     dispatch(Actions.test('test'));
   };
+  addPoints = (amount) => {
+    const { dispatch } = this.props;
+    dispatch(Actions.addPoints(amount));
+  };
   render() {
     return (
-      <section className={`${css.test} section`}>
+      <section className="section">
         <div className="container">
-          <div className="columns">
-            <div className="column">
-              <button onClick={() => this.test()} className="button">
-                Clicky
-              </button>
-              <p>{this.props.testReducer}</p>
+          <div className="tile is-ancestor">
+            <div className="tile is-vertical is-3">
+              <BankPanel />
+              <GatheringPanel addPoints={this.addPoints} />
+              <InventoryPanel />
+              <StorePanel />
             </div>
           </div>
         </div>
@@ -27,8 +50,8 @@ class Game extends React.Component {
 }
 
 function mapStateToProps(state) {
-  const { testReducer } = state;
-  return { testReducer };
+  const { testReducer, bank, inventory } = state;
+  return { testReducer, bank, inventory };
 }
 
 export default connect(mapStateToProps)(Game);

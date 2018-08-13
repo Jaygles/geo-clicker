@@ -4,13 +4,19 @@ import './Nav.scss';
 class Nav extends React.Component {
   render() {
     return (
-      <nav className="navbar is-fixed-top">
+      <nav className="navbar">
         <div className="container">
           <div className="navbar-brand">
-            <p className="navbar-item">Geo Clicker</p>
+            <a href="#" className="navbar-item">
+              GeoClicker
+            </a>
           </div>
-          <div className="navbar-end">
-            <a className="navbar-item">Item</a>
+          <div className="navbar-menu">
+            <div className="navbar-end">
+              <a href="#" className="navbar-item">
+                Help
+              </a>
+            </div>
           </div>
         </div>
       </nav>

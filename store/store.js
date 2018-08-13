@@ -2,9 +2,13 @@ import { createStore } from 'redux';
 import rootReducer from './reducers';
 
 const exampleInitialState = {
-  lastUpdate: 0,
-  light: false,
-  count: 0,
+  testReducer: '',
+  bank: {
+    points: 0,
+  },
+  inventory: {
+    pointsPickers: 0,
+  },
 };
 
 export function initializeStore(initialState = exampleInitialState) {
