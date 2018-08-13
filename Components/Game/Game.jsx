@@ -17,16 +17,13 @@ class Game extends React.Component {
         this.props.dispatch(
           Actions.increment(this.props.bank, this.props.inventory),
         );
+        this.props.dispatch(Actions.checkAvailability(this.props.bank));
       }, 250),
     });
   }
   componentWillUnmount() {
     clearInterval(this.state.gameInterval);
   }
-  test = () => {
-    const { dispatch } = this.props;
-    dispatch(Actions.test('test'));
-  };
   addPoints = (amount) => {
     const { dispatch } = this.props;
     dispatch(Actions.addPoints(amount));

@@ -3,12 +3,17 @@ export default function(state, action) {
     case 'INCREMENT': {
       const newState = { ...state };
       newState.points += action.payload.inventory.pointsPickers;
-      return newState;
+      return { ...newState };
+    }
+    case 'PURCHASE_BANK': {
+      const modifiedState = action.payload.cost(state, null);
+      const newState = modifiedState.newBank;
+      return { ...newState };
     }
     case 'POINTS_MODIFY': {
       const newPoints = { ...state };
       newPoints.points += action.payload;
-      return newPoints;
+      return { ...newPoints };
     }
     default: {
       return state || null;

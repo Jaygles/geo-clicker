@@ -5,6 +5,13 @@ export function test() {
   };
 }
 
+export function checkAvailability(bank) {
+  return {
+    type: 'CHECK_AVAILABILITY',
+    payload: bank,
+  };
+}
+
 export function addPoints(amount) {
   return {
     type: 'POINTS_MODIFY',
@@ -12,10 +19,19 @@ export function addPoints(amount) {
   };
 }
 
-export function purchasePointsPickers(amount) {
+export function purchaseBank(unit) {
+  console.log('purchase being dispatched');
   return {
-    type: 'PURCHASE_POINTS_PICKERS',
-    payload: amount,
+    type: 'PURCHASE_BANK',
+    payload: unit,
+  };
+}
+
+export function purchaseInventory(unit) {
+  console.log('purchase being dispatched');
+  return {
+    type: 'PURCHASE_INVENTORY',
+    payload: unit,
   };
 }
 
