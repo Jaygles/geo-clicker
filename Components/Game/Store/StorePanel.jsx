@@ -4,9 +4,10 @@ import * as Actions from '../../../store/actions/index';
 
 class StorePanel extends React.Component {
   purchase = (unit) => {
-    const { dispatch } = this.props;
-    dispatch(Actions.purchaseInventory(unit));
-    dispatch(Actions.purchaseBank(unit));
+    const { dispatch, inventory, bank } = this.props;
+    dispatch(Actions.purchaseInventory(unit, inventory, bank));
+    dispatch(Actions.purchaseBank(unit, inventory, bank));
+    dispatch(Actions.checkAvailability(bank, inventory));
   };
   _renderStoreButtons = () => {
     const storeButtons = [];
@@ -40,8 +41,8 @@ class StorePanel extends React.Component {
 }
 
 function mapStateToProps(state) {
-  const { inventory, bank, store } = state;
-  return { inventory, bank, store };
+  const { store, inventory, bank } = state;
+  return { store, inventory, bank };
 }
 
 export default connect(mapStateToProps)(StorePanel);

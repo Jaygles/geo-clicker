@@ -1,16 +1,17 @@
 import { createStore } from 'redux';
 import rootReducer from './reducers';
 
-const exampleInitialState = {
+const initialState = {
   bank: {
     points: 0,
   },
   inventory: {
-    pointsPickers: 0,
+    pointsPickers: { name: 'Points Pickers', amount: 0 },
+    superPointsPickers: { name: 'Super Points Pickers', amount: 0 },
   },
   store: [],
 };
 
-export function initializeStore(initialState = exampleInitialState) {
+export function initializeStore() {
   return createStore(rootReducer, initialState);
 }

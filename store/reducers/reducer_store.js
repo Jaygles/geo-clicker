@@ -5,12 +5,13 @@ export default function(state, action) {
     case 'CHECK_AVAILABILITY': {
       const available = [];
       for (let i = 0; i < units.length; i += 1) {
-        if (units[i].prerequisites(action.payload)) {
+        if (
+          units[i].prerequisites(action.payload.bank, action.payload.inventory)
+        ) {
           available.push(units[i]);
         }
       }
-      const newState = available;
-      return newState;
+      return [...available];
     }
     default: {
       return state || null;

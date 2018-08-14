@@ -5,10 +5,10 @@ export function test() {
   };
 }
 
-export function checkAvailability(bank) {
+export function checkAvailability(bank, inventory) {
   return {
     type: 'CHECK_AVAILABILITY',
-    payload: bank,
+    payload: { bank, inventory },
   };
 }
 
@@ -19,19 +19,17 @@ export function addPoints(amount) {
   };
 }
 
-export function purchaseBank(unit) {
-  console.log('purchase being dispatched');
+export function purchaseBank(unit, inventory, bank) {
   return {
     type: 'PURCHASE_BANK',
-    payload: unit,
+    payload: { unit, inventory, bank },
   };
 }
 
-export function purchaseInventory(unit) {
-  console.log('purchase being dispatched');
+export function purchaseInventory(unit, inventory, bank) {
   return {
     type: 'PURCHASE_INVENTORY',
-    payload: unit,
+    payload: { unit, inventory, bank },
   };
 }
 
